@@ -2,7 +2,6 @@
     class Router
     {
         private $routes;
-
         function __construct()
         {
             $routesPath = ROOT.'/config/routes.php';
@@ -53,8 +52,9 @@
                         $controllerObject = new $controllerName;
                         $result = call_user_func_array(array($controllerObject,$actionName),$parameters);
 
+
                         if($result != null) {
-                            break;
+                            return $result['id'];
                         }
                     }
             }
@@ -71,6 +71,6 @@
 
 
 
-
+            return  -1;
         }
     }

@@ -1,7 +1,8 @@
 <?php
     require_once ROOT.'/models/News.php';
     class NewsController {
-        public  function  actionIndex (): bool
+
+        public  function  actionIndex ()
         {
 
             $newsList = News::getNewsList();
@@ -13,16 +14,11 @@
             echo "actionIndex";
             return true;
         }
-        public function actionView($id): bool
+        public function actionView($id)
         {
             if ($id) {
-                $newsItem = News::getNewsItemById($id);
 
-                echo "<pre>";
-                print_r($newsItem);
-                echo "</pre>";
-
-                echo "actionView";
+                return News::getNewsItemById($id);
             }
             return true;
         }
