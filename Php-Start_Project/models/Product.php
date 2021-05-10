@@ -1,6 +1,6 @@
 <?php
     class Product {
-        const SHOW_BY_DEFAULT = 10;
+        const SHOW_BY_DEFAULT = 6;
 
         public  static  function  getLatestProducts($count = self::SHOW_BY_DEFAULT) {
             $count = intval($count);
@@ -27,22 +27,31 @@
             return $productsList;
         }
 
-        public static function getProductsListByCategory($cat_id){
-                $db  = Db::getConnection();
-                $prodCatList = [];
-                $result = $db ->query(
-                    'SELECT id,name,price,image,is_new FROM product'.
-                    ' WHERE status  = "1" AND category_id = '.$cat_id. ' ORDER BY id DESC '. ' LIMIT '.self::SHOW_BY_DEFAULT
-                );
-                $i = 0;
+        public static function getProductsListByCategory($cat_id,$page=1){
 
-                while ($row = $result->fetch()) {
-                    $prodCatList[$i]['id'] = $row['id'];
-                    $prodCatList[$i]['name'] = $row['name'];
-                    $prodCatList[$i]['price'] = $row['price'];
-                    $prodCatList[$i]['image'] = $row['image'];
-                    $prodCatList[$i]['is_new'] = $row['is_new'];
-                    $i++;
+                if ($cat_id) {
+                    $db  = Db::getConnection();
+                    $prodCatList = [];
+
+                    $page = intval($page);
+                    $offset = ($page-1)*self::SHOW_BY_DEFAULT;
+
+                    $result = $db->query(
+                        'SELECT id,name,price,image,is_new FROM product' .
+                        ' WHERE status  = "1" AND category_id = ' . $cat_id .
+                        ' ORDER BY id ASC ' .
+                        ' LIMIT ' . self::SHOW_BY_DEFAULT." OFFSET ".$offset
+                    );
+                    $i = 0;
+
+                    while ($row = $result->fetch()) {
+                        $prodCatList[$i]['id'] = $row['id'];
+                        $prodCatList[$i]['name'] = $row['name'];
+                        $prodCatList[$i]['price'] = $row['price'];
+                        $prodCatList[$i]['image'] = $row['image'];
+                        $prodCatList[$i]['is_new'] = $row['is_new'];
+                        $i++;
+                    }
                 }
 
                 return $prodCatList;
@@ -59,5 +68,17 @@
                     return $result->fetch();
                 }
                 return -1;
+        }
+
+        public static function  getTotalProductsToCategory($cat_id){
+            $db = Db::getConnection();
+            $result = $db->query(
+                'SELECT count(id) AS count FROM product '. 'WHERE status = "1" AND category_id ="'.$cat_id.'"'
+            );
+
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+            $row = $result ->fetch();
+
+            return $row['count'];
         }
     }

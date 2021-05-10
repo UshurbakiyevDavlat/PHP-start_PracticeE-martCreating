@@ -1,6 +1,6 @@
 <?php
-    include  ROOT."/models/Product.php";
-    include ROOT."/models/Category.php";
+//    include  ROOT."/models/Product.php";
+//    include ROOT."/models/Category.php";
 
     class ProductController {
         public function actionView($id) {
