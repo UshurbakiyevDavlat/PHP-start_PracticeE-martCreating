@@ -14,6 +14,8 @@ require_once (ROOT.'/components/Autoload.php');
 
 //require_once(ROOT . '/components/Db.php');
 
+//starting session
+session_start();
 //4 Calling Router
 $router = new Router();
 $router->run();
