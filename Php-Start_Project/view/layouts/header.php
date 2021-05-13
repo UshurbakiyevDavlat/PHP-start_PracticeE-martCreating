@@ -1,3 +1,31 @@
+<!DOCTYPE html>
+<base href="http://localhost/PHP-start_PracticeE-martCreating/Php-Start_Project/index.php" />
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Товар</title>
+    <link href="template/css/bootstrap.min.css" rel="stylesheet">
+    <link href="template/css/font-awesome.min.css" rel="stylesheet">
+    <link href="template/css/prettyPhoto.css" rel="stylesheet">
+    <link href="template/css/price-range.css" rel="stylesheet">
+    <link href="template/css/animate.css" rel="stylesheet">
+    <link href="template/css/main.css" rel="stylesheet">
+    <link href="template/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="template/js/html5shiv.js"></script>
+    <script src="template/js/respond.min.js"></script>
+    <![endif]-->
+    <!--    <link rel="shortcut icon" href="images/ico/favicon.ico">-->
+    <!--    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">-->
+    <!--    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">-->
+    <!--    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">-->
+    <!--    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">-->
+</head><!--/head-->template/
+
+<body>
 <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
         <div class="container">
@@ -33,7 +61,9 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                            <li><a href="index.php/cart/getcart"><i class="fa fa-shopping-cart"></i>Корзина (<span
+                                            id = "cart-count"> </span> ) <!--(<?php  //echo Cart::getTotal();?>)-->
+                                </a></li>
                             <?php if(User::isGuest()):?>
                             <li><a href="index.php/user/login"><i class="fa fa-lock"></i> Вход</a></li>
                             <li><a href="index.php/user/register"><i class="fa fa-lock"></i> Регистрация</a></li>
@@ -67,7 +97,7 @@
                             <li class="dropdown"><a href="#">Магазин<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="index.php/catalog/">Каталог товаров</a></li>
-                                    <li><a href="index.php/cart/">Корзина</a></li>
+                                    <li><a href="index.php/cart/getcart"">Корзина</a></li>
                                 </ul>
                             </li>
                             <li><a href="index.php/blog/">Блог</a></li>
