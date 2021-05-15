@@ -12,6 +12,7 @@
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/site/contact'=>'site/contact' ,
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/cart/addToCart/([0-9]+)'=>'cart/addtocart/$1',
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/cart/getcart'=>'cart/getcart',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/cart/makeOrder'=>'cart/makeOrder',
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/cart/addAjax/([0-9]+)'=>'cart/addAjax/$1',
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php'=>'site/index',//actionIndex in SiteController
     );
