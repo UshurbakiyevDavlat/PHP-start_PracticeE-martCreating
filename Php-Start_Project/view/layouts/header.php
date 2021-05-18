@@ -100,9 +100,9 @@
                                     <li><a href="index.php/cart/getcart"">Корзина</a></li>
                                 </ul>
                             </li>
-                            <li><a href="index.php/blog/">Блог</a></li>
+                            <li><a href="index.php/blog/blog/page-1">Блог</a></li>
                             <li><a href="index.php/about/">О магазине</a></li>
-                            <li><a href="index.php/contacts/">Контакты</a></li>
+                            <li><a href="index.php/site/contact">Контакты</a></li>
                         </ul>
                     </div>
                 </div>

@@ -14,5 +14,11 @@
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/cart/getcart'=>'cart/getcart',
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/cart/makeOrder'=>'cart/makeOrder',
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/cart/addAjax/([0-9]+)'=>'cart/addAjax/$1',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/blog/blog/page-([0-9]+)'=>'blog/article/$1',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/blog/Bitem/([0-9]+)'=>'bItem/item/$1',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/about'=>'site/about',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/cart/delete/([0-9]+)'=>'cart/delete/$1',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/cart/plus/([0-9]+)'=>'cart/plus/$1',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/cart/minus/([0-9]+)'=>'cart/minus/$1',
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php'=>'site/index',//actionIndex in SiteController
     );

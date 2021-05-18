@@ -92,4 +92,18 @@
             return true;
 
         }
+
+        public function actionDelete($id){
+             unset($_SESSION['prodArray'][$id]);
+             header("Location:".$_SERVER['HTTP_REFERER']);
+        }
+        public function actionPlus($id){
+            $_SESSION['prodArray'][$id]++;
+            header("Location:".$_SERVER['HTTP_REFERER']);
+        }
+
+        public function actionMinus($id){
+            $_SESSION['prodArray'][$id]--;
+            header("Location:".$_SERVER['HTTP_REFERER']);
+        }
     }

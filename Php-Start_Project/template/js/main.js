@@ -4,11 +4,19 @@
 
 	var RGBChange = function() {
 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
-	};	
+	};
+
+
+
+
+
+
 		
 /*scroll to top*/
 
 $(document).ready(function(){
+
+
 	$(function () {
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID

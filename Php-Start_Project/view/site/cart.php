@@ -57,9 +57,9 @@
                                 </td>
                                 <td class="cart_quantity">
                                     <div class="cart_quantity_button">
-                                        <a class="cart_quantity_up" href=""> + </a>
+                                        <a class="cart_quantity_up" href="index.php/cart/plus/<?php echo $cartItem[0]['id'];?>"> + </a>
                                         <input class="cart_quantity_input" type="text" name="quantity" value="<?php echo $cartValues[$i];?>" autocomplete="off" size="2">
-                                        <a class="cart_quantity_down" href=""> - </a>
+                                        <a class="cart_quantity_down" href="index.php/cart/minus/<?php echo $cartItem[0]['id'];?>"> - </a>
                                     </div>
                                 </td>
                                 <td class="cart_total">
@@ -67,7 +67,7 @@
                                     echo $cartItem[0]['price'] * $cartValues[$i]?> $</p>
                                 </td>
                                 <td class="cart_delete">
-                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                    <a class="cart_quantity_delete" href="index.php/cart/delete/<?php echo $cartItem[0]['id'];?>"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
                             <?php $i++; endforeach; endif;
