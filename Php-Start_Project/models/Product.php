@@ -153,4 +153,142 @@ class Product
 
 
     }
+
+    public static function getProducts(){
+        $db = Db::getConnection();
+        $query = "
+            SELECT *FROM product
+        ";
+        $result = $db->prepare($query);
+        $result->execute();
+
+        $i = 0;
+        $products = [];
+
+        while($row = $result->fetch()){
+            $products[$i]['id'] = $row['id'];
+            $products[$i]['code'] = $row['code'];
+            $products[$i]['name'] = $row['name'];
+            $products[$i]['price'] = $row['price'];
+            $i++;
+        }
+        return $products;
+    }
+
+    public static function deleteProduct($id){
+        $db = Db::getConnection();
+        $query = "
+            DELETE FROM product WHERE status = 1 AND id = :id
+        ";
+        $result = $db->prepare($query);
+        $result->bindParam(":id",$id,PDO::PARAM_INT);
+        $result->execute();
+
+    }
+
+    public static function getOptionsCat($cat){
+        switch ($cat){
+            case "Рубашки": return 1;
+            case "Брюки": return 2 ;
+            case "Обувь" : return  3;
+            case "Зимняя одежда": return 4 ;
+            case "Летняя одежда": return 5  ;
+            case "Демисезон": return 6 ;
+            case "Акссесуары": return 7 ;
+            case "Ювелирные украшения" : return  8;
+        }
+    }
+    public static function getOptionsAvail($avail){
+        switch ($avail){
+            case "В наличии":return 1;
+            case "Под заказ":return 0;
+        }
+    }
+
+    public static function getOptionsNeww($nw){
+        switch ($nw){
+            case "yes":return 1;
+            case "no":return 0;
+        }
+    }
+    public static function getOptionsRec($rec){
+        switch ($rec){
+            case "yes":return 1;
+            case "no":return 0;
+        }
+    }
+    public static function getOptionsStat($stat){
+        switch ($stat){
+            case "yes":return 0;
+            case "no":return 1;
+        }
+    }
+
+    public static function addProduct($options){
+        $db = Db::getConnection();
+        $query = "
+            INSERT INTO product 
+             (code,name,category_id,price,brand,description,availability,is_new,is_recommended,status)
+             VALUES (:article,:name,:catid,:price,:brand,:des,:avail,:neww,:rec,:status)
+        ";
+
+        $cat = self::getOptionsCat($options['category']) ;
+        $avail = self::getOptionsAvail($options['avail']);
+        $neww = self::getOptionsNeww($options['new']);
+        $rec = self::getOptionsRec($options['rec']);
+        $status =self::getOptionsStat($options['hid']) ;
+
+        $result = $db->prepare($query);
+        $result->bindParam(":article",$options['article'],PDO::PARAM_STR);
+        $result->bindParam(":name",$options['name'],PDO::PARAM_STR);
+        $result->bindParam(":catid",$cat);
+        $result->bindParam(":price",$options['price'],PDO::PARAM_STR);
+        $result->bindParam(":brand",$options['brand'],PDO::PARAM_STR);
+        $result->bindParam(":des",$options['description'],PDO::PARAM_STR);
+        $result->bindParam(":avail",$avail,PDO::PARAM_INT);
+        $result->bindParam(":neww",$neww,PDO::PARAM_INT);
+        $result->bindParam(":rec",$rec,PDO::PARAM_INT);
+        $result->bindParam(":status",$status,PDO::PARAM_INT);
+
+        $result->execute();
+    }
+
+    public static function updateProduct($id,$options){
+        $db = Db::getConnection();
+        $query = "
+            UPDATE product 
+            SET code = :article,
+                name = :name,
+                category_id = :catid,
+                price = :price,
+                brand = :brand,
+                description = :des,
+                availability = :avail,
+                is_new =:neww,
+                is_recommended = :rec,
+                status = :status
+            WHERE id = :id
+        ";
+
+        $cat = self::getOptionsCat($options['category']) ;
+        $avail = self::getOptionsAvail($options['avail']);
+        $neww = self::getOptionsNeww($options['new']);
+        $rec = self::getOptionsRec($options['rec']);
+        $status =self::getOptionsStat($options['hid']) ;
+
+        $result = $db->prepare($query);
+        $result->bindParam(":id",$id,PDO::PARAM_INT);
+        $result->bindParam(":article",$options['article'],PDO::PARAM_STR);
+        $result->bindParam(":name",$options['name'],PDO::PARAM_STR);
+        $result->bindParam(":catid",$cat);
+        $result->bindParam(":price",$options['price'],PDO::PARAM_STR);
+        $result->bindParam(":brand",$options['brand'],PDO::PARAM_STR);
+        $result->bindParam(":des",$options['description'],PDO::PARAM_STR);
+        $result->bindParam(":avail",$avail,PDO::PARAM_INT);
+        $result->bindParam(":neww",$neww,PDO::PARAM_INT);
+        $result->bindParam(":rec",$rec,PDO::PARAM_INT);
+        $result->bindParam(":status",$status,PDO::PARAM_INT);
+
+        $result->execute();
+    }
 }
