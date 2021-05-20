@@ -238,6 +238,8 @@ class Product
         $rec = self::getOptionsRec($options['rec']);
         $status =self::getOptionsStat($options['hid']) ;
 
+
+
         $result = $db->prepare($query);
         $result->bindParam(":article",$options['article'],PDO::PARAM_STR);
         $result->bindParam(":name",$options['name'],PDO::PARAM_STR);
@@ -291,4 +293,5 @@ class Product
 
         $result->execute();
     }
+
 }

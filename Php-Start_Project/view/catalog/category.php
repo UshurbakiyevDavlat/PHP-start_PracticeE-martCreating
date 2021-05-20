@@ -35,7 +35,15 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="template/images/home/product1.jpg" alt="" />
+                                        <img src="<?php
+                                        if(is_file("view/upload/images/products/{$catProd['id']}.jpg")){
+                                            echo "view/upload/images/products/{$catProd['id']}.jpg";
+                                        }
+                                        else {
+                                            echo $altImg;
+                                        }
+                                        ?>"
+                                             alt="" width="200"/>
                                         <h2>$ <?php echo $catProd['price'];?></h2>
                                         <p><?php echo $catProd['name'];?></p>
                                         <a href="index.php/products/<?php echo $catProd['id'];?>" class="btn btn-default"><i class="fa "></i>Подробнее</a>

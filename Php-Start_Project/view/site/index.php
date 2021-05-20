@@ -30,7 +30,15 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="template/images/home/product1.jpg" alt=""/>
+                                        <img src="<?php
+                                        if(is_file("view/upload/images/products/{$latItem['id']}.jpg")){
+                                            echo "view/upload/images/products/{$latItem['id']}.jpg";
+                                        }
+                                        else {
+                                            echo $altImg;
+                                        }
+                                        ?>"
+                                             alt=""/>
                                         <h2>$ <?php echo $latItem['price']; ?></h2>
                                         <p><?php echo $latItem['name']; ?></p>
                                         <a href="index.php/products/<?php echo $latItem['id']; ?>"
@@ -59,7 +67,15 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="template/images/home/recommend1.jpg" alt=""/>
+                                                    <img src="<?php
+                                                    if(is_file("view/upload/images/products/{$rec['id']}.jpg")){
+                                                        echo "view/upload/images/products/{$rec['id']}.jpg";
+                                                    }
+                                                    else {
+                                                        echo $altImg;
+                                                    }
+                                                    ?>"
+                                                         alt=""/>
                                                     <h2><?php echo $rec['price']; ?></h2>
                                                     <p><?php echo $rec['name']; ?></p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i
@@ -77,7 +93,15 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="template/images/home/recommend1.jpg" alt=""/>
+                                                    <img src="<?php
+                                                    if(is_file("view/upload/images/products/{$rec['id']}.jpg")){
+                                                    echo "view/upload/images/products/{$rec['id']}.jpg";
+                                                    }
+                                                    else {
+                                                        echo $altImg;
+                                                    }
+                                                    ?>"
+                                                         alt=""/>
                                                     <h2><?php echo $rec['price']; ?></h2>
                                                     <p><?php echo $rec['name']; ?></p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i

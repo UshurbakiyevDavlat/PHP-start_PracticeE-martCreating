@@ -37,7 +37,13 @@
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/aDelete/([0-9]+)'=>'adminProd/delete/$1',
 
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/aCat'=>'adminCat/index',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/CatAdd'=>'adminCat/catAdd',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/CatUpd/([0-9]+)'=>'adminCat/catUpd/$1',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/CatDel/([0-9]+)'=>'adminCat/catDel/$1',
+
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/aOrder'=>'adminOrder/index',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/OrderUpd/([0-9]+)'=>'adminOrder/ordUpd/$1',
+        'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php/OrderDel/([0-9]+)'=>'adminOrder/ordDel/$1',
 
         'PHP-start_PracticeE-martCreating/Php-Start_Project/index.php'=>'site/index',//actionIndex in SiteController
 

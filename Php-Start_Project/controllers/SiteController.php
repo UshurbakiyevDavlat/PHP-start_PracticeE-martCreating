@@ -16,6 +16,10 @@ class SiteController
         $recomendedA = Product::getRecAProducts();
         $recomendedI = Product::getRecIProducts();
 
+
+
+        $altImg = "view/upload/images/products/АльтРубашка.jpg";
+
         require_once(ROOT . '/view/site/index.php');
         return true;
     }

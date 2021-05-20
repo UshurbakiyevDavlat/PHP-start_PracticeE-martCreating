@@ -7,6 +7,10 @@
             $categories = Category::getCategoryList();
 
             $product = Product::getProductById($id);
+
+            $path ="view/upload/images/products/{$id}.jpg";
+            $altImg = "view/upload/images/products/АльтРубашка.jpg";
+
             require_once(ROOT.'/view/product/view.php');
             return true;
         }

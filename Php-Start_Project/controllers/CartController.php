@@ -10,6 +10,7 @@
         }
 
         public function actionGetcart(){
+            $altImg = "view/upload/images/products/АльтРубашка.jpg";
             $categories = Category::getCategoryList();
             if (isset( $_SESSION['prodArray'])) {
 

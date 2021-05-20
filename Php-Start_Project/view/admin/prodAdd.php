@@ -37,6 +37,7 @@
     </label>
     <br>
     <label>
+        <img src="<?php echo $altImg;?>" alt="нет доступа к файлам" width="200"><br>
         Image: <input type="file" name = "image" >
     </label>
     <br>
@@ -68,7 +69,7 @@
         </select>
     </label>
     <br>
-    <input type="submit" name="submit" value="Редактировать"/>
+    <input type="submit" name="submit" value="Добавить"/>
 
 </form>
 <?php  require_once 'view/layouts/footer_admin.php';?>

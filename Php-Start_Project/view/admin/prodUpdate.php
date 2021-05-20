@@ -36,6 +36,8 @@
     </label>
     <br>
     <label>
+        <img src="<?php  if(is_file($path))echo $path; else echo $altImg; ?>" alt="нет доступа к файловой системе" width="200">
+        <br>
         Image: <input type="file" name = "image" >
     </label>
     <br>

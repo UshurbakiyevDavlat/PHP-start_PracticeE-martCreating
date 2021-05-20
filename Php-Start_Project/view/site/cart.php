@@ -46,7 +46,17 @@
 
                             <tr>
                                 <td class="cart_product">
-                                    <a href="index.php/products/<?php echo $cartItem[0]['id'];?>">><img src="template/images/cart/one.png" alt=""></a>
+                                    <a href="index.php/products/<?php echo $cartItem[0]['id'];?>">>
+                                        <img src="<?php
+                                        if(is_file("view/upload/images/products/{$cartItem[0]['id']}.jpg")){
+                                            echo "view/upload/images/products/{$cartItem[0]['id']}.jpg";
+                                        }
+                                        else {
+                                            echo $altImg;
+                                        }
+                                        ?>"
+                                             alt="" width="200"/>
+                                    </a>
                                 </td>
                                 <td class="cart_description">
                                     <h4><a href="index.php/products/<?php echo $cartItem[0]['id'];?>"><?php echo $cartItem[0]['name']?></a></h4>
